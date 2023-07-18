@@ -1,9 +1,14 @@
 #include "counter.h"
 
-void Counter::print_count() const
+Counter::~Counter()
 {
-    std::cout << "Number of objects created: " << count << '\n';
+    --count;        // decrease count when object destroyed
 }
 
-// we need the next line if not using inline member variable (in older standards)
-// int Counter::count = 0;
+// this to make count available outside class
+int Counter::count = 0;
+
+void print_count()
+{
+    std::cout << "Number of objects created: " << Counter::count << '\n';
+}

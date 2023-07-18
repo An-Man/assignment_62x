@@ -5,17 +5,17 @@
 
 class Counter
 {
-private:
-    static inline int count;  // this needs to be static inline
-
 public:
-    Counter()
+    static int count;  // this needs to be static
+
+    Counter()          // constructor
     {
-        count++;              // increase count
+        count++;       // increase count
     }
 
-    void print_count() const;
+    ~Counter();        // destructor prototype
 };
 
+void print_count(); // not a member function so that 0 can be printed as well
 
 #endif
