@@ -4,7 +4,7 @@
 
 int main()
 {
-    Entity a(12); // constructs default object, robot / 10
+    Entity a(12);
     Entity b('k');
     Entity c(7.88f);
 
