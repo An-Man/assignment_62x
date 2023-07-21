@@ -2,6 +2,7 @@
 #define ENTITY_H
 
 #include <iostream>
+#include <vector>
 
 class Entity {      // a tagged union
 private:
@@ -56,5 +57,7 @@ public:
 };
 
 Entity read_and_create(const std::string& str);
+
+void read_from_file(const std::string& filename, std::vector<Entity>& entities);
 
 #endif

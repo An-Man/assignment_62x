@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "cfile.h"
 #include <cassert>
 #include <string>
 #include <charconv>
@@ -140,5 +141,19 @@ Entity read_and_create(const std::string& input)
         return ent;
     } else {
         throw std::runtime_error("Error reading string");
+    }
+}
+
+void read_from_file(const std::string& filename, std::vector<Entity>& entities)
+{
+    Cfile rfile(filename);
+    std::string line {};
+
+    line = rfile.read_line();
+
+    while (!line.empty()) // what to put here
+    {
+        entities.push_back(read_and_create(line));
+        line = rfile.read_line(); // read_line is Cfile::read_line
     }
 }
